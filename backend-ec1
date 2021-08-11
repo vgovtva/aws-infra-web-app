@@ -1,0 +1,3 @@
+bucket          = "ec1-shop-terraform-state-bucket"
+key             = "terraform/infra/file.tfstate"
+region          = "eu-central-1"

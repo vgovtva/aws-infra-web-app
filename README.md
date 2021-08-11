@@ -1,2 +1,3 @@
-# store-infra
-aws-infra-web-app
+# Web application infra
+
+Infrastructure for a web application.
