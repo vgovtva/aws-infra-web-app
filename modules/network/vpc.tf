@@ -13,6 +13,10 @@ resource "aws_vpc" "main" {
   }
 }
 
+# TODO: Set up two way internet gateway (with public IP)
+# TODO: Add subnet for NAT GW
+# TODO: Add subnet for NAT GW with egress only
+
 resource "aws_egress_only_internet_gateway" "example" {
   vpc_id = aws_vpc.main.id
 
