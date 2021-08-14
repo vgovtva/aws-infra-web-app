@@ -21,11 +21,11 @@ Project Description
 
 ### In Progress
 
-- [ ] NAT GW: Create egress igw  
-- [ ] NAG GW: Create public subnets  
-- [ ] NAT GW: Create NatGateway instance  
-- [ ] NAT GW: route outgoing traffic to eigw  
 
 ### Done ✓
 
+- [x] NAT GW: route outgoing traffic to eigw  
+- [x] NAT GW: Create NatGateway instance  
+- [x] NAG GW: Create public subnets  
+- [x] NAT GW: Create egress igw  
 

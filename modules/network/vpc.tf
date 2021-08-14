@@ -1,23 +1,19 @@
 terraform {
   required_providers {
     aws = {
-    source  = "hashicorp/aws"
+      source = "hashicorp/aws"
     }
   }
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.vpc_cidr_block
   tags = {
     Name = "infra-vpc"
   }
 }
 
-# TODO: Set up two way internet gateway (with public IP)
-# TODO: Add subnet for NAT GW
-# TODO: Add subnet for NAT GW with egress only
-
-resource "aws_egress_only_internet_gateway" "example" {
+resource "aws_egress_only_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
   tags = {
@@ -27,9 +23,13 @@ resource "aws_egress_only_internet_gateway" "example" {
 
 # Needed for sharing vpc_id with other resources in the module
 locals {
-  vpc_id = aws_vpc.main.id
+  shared_output = {
+    vpc_id = aws_vpc.main.id
+  }
 }
 
-output "infra_vpc_id" {
-  value = local.vpc_id
+locals {
+  infra_vpc_id = local.shared_output.vpc_id
 }
+
+

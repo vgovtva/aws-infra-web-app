@@ -3,7 +3,5 @@
 resource "aws_s3_bucket_object" "output_variables" {
   bucket = var.output_bucket
   key = "${var.output_bucket_key_prefix}/network_output.json"
-  content = jsonencode({
-    vpc_id = local.vpc_id
-  })
+  content = jsonencode(local.shared_output)
 }
